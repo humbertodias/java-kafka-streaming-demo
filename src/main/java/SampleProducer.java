@@ -45,7 +45,7 @@ public class SampleProducer {
 
 //            myKafkaProducer.send("demo", xPojo);
             System.out.println("out_" + i);
-            myKafkaProducer.send("demo", "ABC "  + i );
+            myKafkaProducer.send("demo", "Message "  + i );
 
         }
         //myKafkaProducer.close();

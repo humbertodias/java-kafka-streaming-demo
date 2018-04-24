@@ -11,6 +11,10 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- avoiding error 
+        Couldn't destroy threadgroup org.codehaus.mojo.exec.ExecJavaMojo$IsolatedThreadGroup[name=SampleProducer,maxpri=10]java.lang.IllegalThreadStateException
+		-->
+        <exec.cleanupDaemonThreads>false</exec.cleanupDaemonThreads>
     </properties>
 
     <dependencies>
@@ -52,6 +56,17 @@
     </dependencies>
     <build>
         <finalName>java-kafka-streaming</finalName>
+
+	    <plugins>
+	    	<plugin>
+			    <artifactId>maven-war-plugin</artifactId>
+			    <version>3.2.0</version>
+			    <configuration>
+			        <failOnMissingWebXml>false</failOnMissingWebXml>
+			    </configuration>
+			</plugin>
+	    </plugins>
+
     </build>
 
 </project>
